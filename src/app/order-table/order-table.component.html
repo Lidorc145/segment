@@ -33,8 +33,12 @@
   </div>
 </div>
 
-<ng2-smart-table
+<ng2-smart-table *ngIf="dataReceived"
   [settings]="settings"
   [source]="tableData"
   (userRowSelect)="onUserRowSelect(popup, $event)"
 ></ng2-smart-table>
+<div class="d-flex align-items-center" *ngIf="!dataReceived">
+  <strong>Loading...</strong>
+  <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+</div>
